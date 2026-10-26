@@ -102,7 +102,7 @@ impl Distribution {
             })
             .collect();
         // sorted by address so the file is easy to read and diff
-        out.sort_by(|a, b| a.address.to_lowercase().cmp(&b.address.to_lowercase()));
+        out.sort_by_key(|c| c.address.to_lowercase());
 
         Ok(Distribution {
             merkle_root: hash_to_hex(&tree.root()),

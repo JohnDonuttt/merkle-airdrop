@@ -82,7 +82,7 @@ impl MerkleTree {
                 amount,
             })
             .collect();
-        entries.sort_by(|a, b| a.leaf.cmp(&b.leaf));
+        entries.sort_by_key(|e| e.leaf);
 
         let n = entries.len();
         let len = 2 * n - 1;
